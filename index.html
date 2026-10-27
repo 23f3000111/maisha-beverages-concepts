@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maisha Beverages | Website concepts</title>
+<meta name="description" content="Two website concepts for Maisha Beverages Limited, makers of HOLA soft drinks: a corporate direction and a fun direction.">
+<link rel="icon" href="shared/img/favicon.png">
+<link rel="preload" href="shared/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face { font-family: 'Archivo'; src: url('shared/fonts/archivo.woff2') format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+  @font-face { font-family: 'Bricolage Grotesque'; src: url('shared/fonts/bricolage.woff2') format('woff2'); font-weight: 200 800; font-stretch: 75% 100%; font-display: swap; }
+  :root { --ink: #241414; --text: #4B3F3E; --muted: #7F7170; --line: #ECE6E4; --accent: #7A0C0C; --orange: #F07A1E; --ease: cubic-bezier(.2, .8, .2, 1); }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: #fff; color: var(--text); font: 400 17px/1.6 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { width: min(1180px, 100% - 64px); margin: 0 auto; padding: 34px 0 52px; }
+  header { display: flex; align-items: center; gap: 14px; }
+  header img { width: 64px; filter: drop-shadow(0 6px 10px rgba(122, 12, 12, .25)); }
+  header strong { display: block; font-size: 18px; font-stretch: 112%; font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
+  header span { font-size: 14px; color: var(--muted); }
+  h1 { margin: 30px 0 0; max-width: 26ch; font-size: clamp(32px, 3.3vw, 46px); line-height: 1.02; font-weight: 820; font-stretch: 112%; letter-spacing: -.034em; color: var(--ink); text-wrap: balance; }
+  .intro { margin: 14px 0 0; max-width: 68ch; font-size: 17.5px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px; }
+  .card {
+    position: relative; display: flex; flex-direction: column; border-radius: 28px; background: #fff; color: inherit; text-decoration: none; overflow: hidden;
+    box-shadow: 0 1px 0 #fff inset, 0 0 0 1px rgba(40, 18, 16, .05), 0 10px 20px -10px rgba(40, 18, 16, .18), 0 40px 60px -34px rgba(40, 18, 16, .42);
+    transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+  }
+  .card:hover, .card:focus-visible { --lift: -8px; box-shadow: 0 1px 0 #fff inset, 0 0 0 1px rgba(40, 18, 16, .05), 0 18px 30px -12px rgba(40, 18, 16, .22), 0 56px 80px -36px rgba(40, 18, 16, .5); }
+  .card:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+  .shot { margin: 12px 12px 0; border-radius: 18px; overflow: hidden; aspect-ratio: 16 / 10; background: #f5f2f1; box-shadow: inset 0 0 0 1px var(--line); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .8s var(--ease); }
+  .card:hover .shot img { transform: scale(1.03); }
+  .body { display: grid; gap: 8px; padding: 22px 26px 26px; }
+  .label { font-size: 14px; color: var(--muted); }
+  .title { font-size: 32px; line-height: 1; font-weight: 820; font-stretch: 114%; letter-spacing: -.03em; color: var(--ink); }
+  .card--b .title { font-family: 'Bricolage Grotesque', sans-serif; font-stretch: 75%; font-weight: 800; text-transform: uppercase; font-size: 40px; letter-spacing: 0; }
+  .desc { font-size: 16px; max-width: 46ch; }
+  .go { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; width: max-content; height: 46px; padding: 0 22px; border-radius: 999px; color: #fff; font-weight: 650; font-size: 15.5px; background: linear-gradient(180deg, #8C1510, var(--accent)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 10px 20px -10px rgba(122, 12, 12, .7); }
+  .shared { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 14.5px; color: var(--muted); }
+  .shared strong { color: var(--ink); font-weight: 650; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .card, .shot img { transition: none; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="shared/img/logo/hola-logo-flat.webp" alt="HOLA" width="534" height="465">
+      <div><strong>Maisha Beverages Limited</strong><span>Website concepts for HOLA, October 2026</span></div>
+    </header>
+    <h1>Two directions for the Maisha Beverages website</h1>
+    <p class="intro">Both concepts carry the same content: the full HOLA range, a distributor enquiry form, a trade assistant chat, the map to Baba Dogo Road and the company video. They differ in tone, so you can choose how the brand greets trade buyers.</p>
+    <div class="grid">
+      <a class="card" href="site-a-corporate/">
+        <span class="shot"><img src="shared/img/chooser-a.webp" alt="Preview of the corporate concept: headline Kenyan-made soft drinks, ready for your shelves, beside an arc of HOLA bottles" width="1200" height="750"></span>
+        <span class="body">
+          <span class="label">Concept A</span>
+          <span class="title">Corporate</span>
+          <span class="desc">Official and composed for distributors, retailers and hospitality buyers. Clean grid, raised cards and an arc carousel that walks through the range.</span>
+          <span class="go">Open the corporate site</span>
+        </span>
+      </a>
+      <a class="card card--b" href="site-b-fun/">
+        <span class="shot"><img src="shared/img/chooser-b.webp" alt="Preview of the fun concept: an arched JUST SAY HOLA! headline above a fan of HOLA bottles" width="1200" height="750"></span>
+        <span class="body">
+          <span class="label">Concept B</span>
+          <span class="title">Fun</span>
+          <span class="desc">Bold and playful, built on HOLA&rsquo;s own &ldquo;Just say HOLA!&rdquo; line. Big condensed type, a fan of bottles, sticker tags and real photos from HOLA&rsquo;s social pages.</span>
+          <span class="go">Open the fun site</span>
+        </span>
+      </a>
+    </div>
+    <p class="shared"><span><strong>In both:</strong> distributor form</span><span>trade assistant chat</span><span>Google Maps</span><span>company video</span><span>all ten flavours</span></p>
+  </div>
+<script>
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('.card').forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--rx', ((0.5 - (e.clientY - r.top) / r.height) * 5).toFixed(2) + 'deg');
+        el.style.setProperty('--ry', (((e.clientX - r.left) / r.width - 0.5) * 5).toFixed(2) + 'deg');
+      });
+      el.addEventListener('pointerleave', function () { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+    });
+  })();
+</script>
+</body>
+</html>
