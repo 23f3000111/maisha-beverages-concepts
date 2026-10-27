@@ -44,7 +44,22 @@
     users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
     leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/>',
     star: '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>',
-    list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>'
+    list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+    down: '<path d="M12 5v14M19 12l-7 7-7-7"/>',
+    basket: '<path d="m15 11-1 9"/><path d="m19 11-4-7"/><path d="M2 11h20"/><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"/><path d="M4.5 15.5h15"/><path d="m5 11 4-7"/><path d="m9 11 1 9"/>',
+    repeat: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+    print: '<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/>',
+    clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    wallet: '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
+    utensils: '<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
+    martini: '<path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/>',
+    citrus: '<path d="M21.66 17.67a1.08 1.08 0 0 1-.04 1.6A12 12 0 0 1 4.73 2.38a1.1 1.1 0 0 1 1.61-.04z"/><path d="M19.65 15.66A8 8 0 0 1 8.35 4.34"/><path d="m14 10-5.5 5.5"/><path d="M14 17.85V10H6.15"/>',
+    flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+    user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+    edit: '<path d="M21.17 6.81a1 1 0 0 0-3.98-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+    heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+    trash: '<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>'
   };
   MB.icon = function (name, cls) {
     return '<svg class="icon ' + (cls || '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + (P[name] || '') + '</svg>';
@@ -145,23 +160,82 @@
     t._h = setTimeout(function () { t.classList.remove('is-on'); }, 2800);
   };
 
-  /* Flavours a visitor wants to ask about; synced with the distributor form */
-  MB.enquiry = {
-    key: 'mb-enquiry-flavours',
+  /* The order in progress, in cases per SKU. Kept in localStorage like a cart, so it
+     survives a reload; every change fires "mb:order" for the desk, header and pop-ups. */
+  var memo = {};
+  MB.order = {
+    key: 'mb-order-draft',
     get: function () {
-      try { return JSON.parse(sessionStorage.getItem(this.key)) || []; } catch (e) { return []; }
+      try { return JSON.parse(localStorage.getItem(this.key)) || {}; } catch (e) { return Object.assign({}, memo); }
     },
-    set: function (list) {
-      try { sessionStorage.setItem(this.key, JSON.stringify(list)); } catch (e) { /* storage blocked */ }
-      document.dispatchEvent(new CustomEvent('mb:enquiry', { detail: list }));
+    save: function (o) {
+      Object.keys(o).forEach(function (k) { if (!(o[k] > 0) || !MB.sku(k)) delete o[k]; });
+      memo = o;
+      try { localStorage.setItem(this.key, JSON.stringify(o)); } catch (e) { /* storage blocked: memo keeps it */ }
+      document.dispatchEvent(new CustomEvent('mb:order', { detail: o }));
     },
-    has: function (id) { return this.get().indexOf(id) > -1; },
-    toggle: function (id) {
-      var list = this.get(), i = list.indexOf(id);
-      if (i > -1) list.splice(i, 1); else list.push(id);
-      this.set(list);
-      return i === -1;
+    qty: function (id) { return this.get()[id] || 0; },
+    set: function (id, n) {
+      var o = this.get();
+      o[id] = Math.max(0, Math.min(9999, Math.round(+n || 0)));
+      this.save(o);
+      return o[id] || 0;
+    },
+    add: function (id, n) { return this.set(id, this.qty(id) + (n || 1)); },
+    total: function (o) {
+      o = o || this.get();
+      return Object.keys(o).reduce(function (t, k) { return t + o[k]; }, 0);
+    },
+    lines: function (o) {
+      o = o || this.get();
+      return MB.skus.filter(function (s) { return o[s.id] > 0; }).map(function (s) { return { sku: s, qty: o[s.id] }; });
+    },
+    history: function () {
+      try { return JSON.parse(localStorage.getItem('mb-orders')) || []; } catch (e) { return []; }
+    },
+    remember: function (record) {
+      try {
+        var all = this.history();
+        all.push(record);
+        localStorage.setItem('mb-orders', JSON.stringify(all.slice(-20)));
+      } catch (e) { /* storage blocked: the confirmation still shows */ }
     }
+  };
+  MB.cases = function (n) { return n + (n === 1 ? ' case' : ' cases'); };
+
+  /* Add cases from anywhere on the page, with a toast that says what changed */
+  MB.addToOrder = function (id, n) {
+    var s = MB.sku(id);
+    if (!s) return;
+    MB.order.add(id, n);
+    MB.toast(MB.cases(n) + ' of ' + s.name + ' added to your order');
+  };
+
+  /* Keep every [data-order-count] badge in step with the order */
+  MB.bindOrderCount = function () {
+    var paint = function () {
+      var t = MB.order.total();
+      MB.$$('[data-order-count]').forEach(function (el) {
+        el.textContent = t;
+        el.hidden = !t;
+        var host = el.closest('[data-order-host]');
+        if (host) host.setAttribute('aria-label', t ? 'Your order, ' + MB.cases(t) : 'Your order is empty');
+      });
+    };
+    paint();
+    document.addEventListener('mb:order', paint);
+  };
+
+  /* Quantity stepper markup used by the desk and the pop-ups */
+  MB.stepperHTML = function (id, value, label, extra) {
+    return '<div class="qty" data-qty="' + id + '"' + (extra || '') + '>' +
+      '<button type="button" data-step="-1" aria-label="One case less">' + MB.icon('minus') + '</button>' +
+      '<input type="number" inputmode="numeric" min="0" max="9999" value="' + value + '" aria-label="' + MB.esc(label) + '">' +
+      '<button type="button" data-step="1" aria-label="One case more">' + MB.icon('plus') + '</button></div>';
+  };
+  MB.stepperValue = function (box) {
+    var v = Math.round(+box.querySelector('input').value || 0);
+    return Math.max(0, Math.min(9999, v));
   };
 
   MB.headerScroll = function (el) {

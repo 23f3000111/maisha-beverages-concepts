@@ -3,239 +3,260 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HOLA by Maisha Beverages | Just say HOLA!</title>
-<meta name="description" content="HOLA soft drinks and energy drinks, proudly made in Kenya by Maisha Beverages. Ten explosive flavours. Become a distributor and bring HOLA to your shop.">
-<meta name="theme-color" content="#ffffff">
+<title>Just say HOLA! | Kenyan soft drinks by Maisha Beverages</title>
+<meta name="description" content="HOLA carbonated soft drinks and energy drinks, made in Kenya by Maisha Beverages. Order by the case, mix HOLA into cocktails and mocktails, and sell HOLA in your county.">
+<meta name="theme-color" content="#4FCBFF">
 <link rel="icon" href="../shared/img/favicon.png">
 <link rel="apple-touch-icon" href="../shared/img/apple-touch-icon.png">
-<link rel="preload" href="../shared/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/css/shared.css?v=1">
-<link rel="stylesheet" href="css/site.css?v=1">
+<link rel="preload" href="../shared/fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../shared/css/shared.css?v=2">
+<link rel="stylesheet" href="css/site.css?v=2">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="header">
+<header class="header" id="top">
   <div class="header__pill">
-    <nav class="header__links" aria-label="Main">
+    <nav class="nav" aria-label="Main">
       <a href="#flavours">Flavours</a>
-      <a href="#story">Our story</a>
-      <a href="#shops">For shops</a>
-      <a href="#find">Find us</a>
+      <a href="#order">Order</a>
+      <a href="#mixes">Mixes</a>
+      <a href="#sell">Sell HOLA</a>
     </nav>
-    <a class="logo" href="#top" aria-label="HOLA, back to top"><img src="../shared/img/logo/hola-logo-flat.webp" alt="HOLA" width="534" height="465"></a>
-    <div class="header__right">
-      <a class="header__phone" href="tel:+254715537575"><i data-icon="phone"></i>0715 537 575</a>
-      <a class="btn btn--primary btn--sm" href="#distributor">Become a distributor</a>
+    <a class="brand" href="#top" aria-label="HOLA, back to top"><img src="../shared/img/logo/hola-logo-sm.webp" alt="" width="300" height="267"></a>
+    <div class="header__end">
+      <a class="header__call" href="tel:+254715537575" aria-label="Call the trade line, 0715 537 575"><i data-icon="phone"></i><span>0715 537 575</span></a>
+      <a class="cart" href="#order" data-order-host aria-label="Your order is empty"><i data-icon="basket"></i><span class="cart__n" data-order-count hidden>0</span></a>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-  <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="hero__blobs" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="hero__bubbles" aria-hidden="true"></div>
-    <h1 class="hero__title" id="hero-title">
-      <span class="visually-hidden">Just say HOLA!</span>
-      <svg class="arch" viewBox="0 0 1200 268" aria-hidden="true" focusable="false">
-        <defs><path id="arch-path" d="M 50 252 Q 600 26 1150 252"/></defs>
-        <g class="arch__depth"></g>
-        <text class="arch__face"><textPath href="#arch-path" startOffset="50%" text-anchor="middle">JUST SAY HOLA!</textPath></text>
+  <!-- 1. Sky blue hero with the arched line, like "GO SAYIAN" -->
+  <section class="sky" id="hero" aria-labelledby="hero-title">
+    <div class="hero">
+      <h1 class="visually-hidden" id="hero-title">Just say HOLA! Kenyan soft drinks by the case</h1>
+      <svg class="arch" viewBox="0 0 1200 330" aria-hidden="true">
+        <defs><path id="arch-path" d="M 40 318 Q 600 -6 1160 318"/></defs>
+        <text class="arch__shadow"><textPath href="#arch-path" startOffset="50%" text-anchor="middle">Just say HOLA!</textPath></text>
+        <text class="arch__text"><textPath href="#arch-path" startOffset="50%" text-anchor="middle">Just say HOLA!</textPath></text>
       </svg>
-      <svg class="burst burst--l" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8v18M50 74v18M8 50h18M74 50h18M20 20l13 13M67 67l13 13M80 20 67 33M33 67 20 80"/></svg>
-      <svg class="burst burst--r" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8v18M50 74v18M8 50h18M74 50h18M20 20l13 13M67 67l13 13M80 20 67 33M33 67 20 80"/></svg>
-    </h1>
-    <div class="hero__copy">
-      <p class="hero__lead">Ten explosive flavours, proudly made in Kenya by Kenyans. Bring them to your shelves.</p>
+      <p class="hero__lead">Seven soft drinks and three energy drinks with explosive flavour. Made in Kenya, by Kenyans, and ready for your shelves by the case.</p>
       <div class="hero__ctas">
-        <a class="btn btn--primary btn--lg" href="#distributor">Become a distributor</a>
-        <a class="btn btn--ghost btn--lg" href="#flavours">Meet the flavours</a>
+        <a class="btn btn--sun" href="#order">Order by the case</a>
+        <a class="btn btn--white" href="#flavours">See the flavours</a>
+      </div>
+      <div class="hero__bottles" aria-hidden="true">
+        <img class="hb hb--1" src="../shared/img/bottles/orange.webp" alt="" width="251" height="921">
+        <img class="hb hb--2" src="../shared/img/bottles/berry.webp" alt="" width="251" height="921">
+        <img class="hb hb--3" src="../shared/img/bottles/cola.webp" alt="" width="251" height="921">
+        <img class="hb hb--4" src="../shared/img/bottles/mojito.webp" alt="" width="251" height="921">
+        <img class="hb hb--5" src="../shared/img/bottles/limao.webp" alt="" width="251" height="921">
+      </div>
+      <img class="fruit fruit--orange" src="../shared/img/cut/orange-pair.webp" alt="" width="588" height="640" aria-hidden="true">
+      <img class="fruit fruit--mango" src="../shared/img/cut/mango-cubes.webp" alt="" width="436" height="640" aria-hidden="true">
+      <img class="fruit fruit--lime" src="../shared/img/cut/lime-slice.webp" alt="" width="621" height="640" aria-hidden="true">
+      <img class="fruit fruit--berry" src="../shared/img/cut/strawberry.webp" alt="" width="628" height="510" aria-hidden="true">
+    </div>
+
+    <!-- 2. Fizzing with flavour -->
+    <div class="fizz" aria-labelledby="fizz-title">
+      <div class="fizz__fall" aria-hidden="true">
+        <img class="fall fall--1" src="../shared/img/bottles/rose.webp" alt="" width="251" height="921" loading="lazy">
+        <img class="fall fall--2" src="../shared/img/bottles/energy.webp" alt="" width="251" height="921" loading="lazy">
+        <img class="fall fall--3" src="../shared/img/bottles/mango.webp" alt="" width="251" height="921" loading="lazy">
+        <img class="fruit fruit--wedge" src="../shared/img/cut/orange-wedge.webp" alt="" width="590" height="296" loading="lazy">
+        <img class="fruit fruit--halves" src="../shared/img/cut/lime-halves.webp" alt="" width="640" height="335" loading="lazy">
+      </div>
+      <div class="fizz__copy">
+        <h2 class="display" id="fizz-title">The home of <span class="hl">explosive</span> flavours.</h2>
+        <p>Shoppers have had the same few flavours for sixty years. HOLA brings the ones they have not tried yet, at a price that saves their shilling.</p>
       </div>
     </div>
-    <div class="fan" id="fan"></div>
+
+    <!-- 3. Made in Kenya, like "All natural, always" -->
+    <div class="kenya" aria-labelledby="kenya-title">
+      <div class="porthole" aria-hidden="true">
+        <span class="porthole__hole"></span>
+        <img class="porthole__bottle" src="../shared/img/bottles/mango.webp" alt="" width="251" height="921" loading="lazy">
+        <span class="porthole__pop"><i></i><i></i><i></i></span>
+      </div>
+      <div class="kenya__copy">
+        <h2 class="display" id="kenya-title">Made in Kenya, <span class="hl">by Kenyans.</span></h2>
+        <p class="kenya__lead">HOLA means hello: hi, hello, jambo. Every bottle is made in Nairobi by Maisha Beverages.</p>
+        <ul class="perks">
+          <li><span class="tag tag--a">10 flavours</span><p>Seven soft drinks and three energy drinks from one supplier.</p></li>
+          <li><span class="tag tag--b">Save your shilling</span><p>A price point that keeps stock turning in shops and kiosks.</p></li>
+          <li><span class="tag tag--c">Labels that sell</span><p>Bold, patterned bottles that stand out in any fridge door.</p></li>
+          <li><span class="tag tag--d">Close to you</span><p>Made in Nairobi, so restocks are quick and steady.</p></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <div class="marquee-wrap" aria-hidden="true"><div class="marquee"><div class="marquee__track" id="marquee"></div></div></div>
-
-  <section class="section story" id="story" aria-labelledby="story-title">
-    <div class="wrap story__grid">
-      <div class="story__art">
-        <div class="arch-photo"><img src="../shared/img/life/hands-four.webp" alt="Four bottles of HOLA held in someone's arms: Orange, Very Berry, Sweet Limão and Rosé" width="1128" height="1400" loading="lazy"></div>
-        <a class="dict-card card3d" href="#video">
-          <span class="dict-card__word">hola</span>
-          <span class="dict-card__say">/ˈoʊ.lə/ <em>noun</em></span>
-          <span class="dict-card__mean">Hi, hello, jambo. A word used as a greeting.</span>
-          <span class="dict-card__go"><i data-icon="play"></i>Watch the Maisha story</span>
-        </a>
+  <!-- 4. Explore flavours on pink to red -->
+  <section class="explore wave" id="flavours" aria-labelledby="flavours-title">
+    <div class="wrap">
+      <div class="center-head">
+        <h2 class="display" id="flavours-title">Explore the flavours</h2>
+        <p>Pick a bottle for tasting notes and recipes, or put a few cases straight into your order.</p>
+        <a class="btn btn--white" href="#order">Order by the case</a>
       </div>
-      <div class="story__copy">
-        <h2 class="display" id="story-title">Say hello to something new</h2>
-        <p class="lead">Proudly made in Kenya, by Kenyans, HOLA soft drinks and energy drinks are here to raise the bar for refreshment across Africa.</p>
-        <p>When you say hello, you have the power to change a person&rsquo;s world, and yours too. So we bottled it. Ten flavours with eye-catching packs and uncompromised taste, made by a team of seasoned professionals, romantics and dreamers in Nairobi.</p>
-        <div class="counters">
-          <div class="counter"><strong>10</strong><span>explosive flavours</span></div>
-          <div class="counter"><strong>60</strong><span>years of the same old flavours, over</span></div>
-          <div class="counter"><strong>100%</strong><span>made in Kenya</span></div>
+      <div class="fgrid" id="flavour-grid"></div>
+    </div>
+  </section>
+
+  <!-- 5. Who we supply, in the "What are people saying" layout -->
+  <section class="supply" id="supply" aria-labelledby="supply-title">
+    <div class="wrap">
+      <div class="center-head">
+        <h2 class="display" id="supply-title">Who we supply</h2>
+        <p>From distributors covering whole counties to the kiosk on the corner. Pick yours to see how we work together.</p>
+      </div>
+      <div class="sgrid" id="supply-grid"></div>
+    </div>
+  </section>
+
+  <!-- 6. Order by the case, like "Subscribe & save" -->
+  <section class="sun wave" id="order" aria-labelledby="order-title">
+    <img class="fruit fruit--lemon" src="../shared/img/cut/lemon-half.webp" alt="" width="508" height="477" loading="lazy" aria-hidden="true">
+    <img class="fruit fruit--lime2" src="../shared/img/cut/lime-slice.webp" alt="" width="621" height="640" loading="lazy" aria-hidden="true">
+    <div class="wrap">
+      <div class="center-head center-head--hot">
+        <h2 class="display" id="order-title">Order HOLA by the case</h2>
+        <p>Fill a crate with any mix of flavours, tell us where to deliver and pick a day. The trade desk calls to confirm prices and stock.</p>
+        <ul class="benefits">
+          <li><span class="benefits__icon"><i data-icon="boxes"></i></span>Mix any flavours</li>
+          <li><span class="benefits__icon"><i data-icon="calendar"></i></span>Pick your day</li>
+          <li><span class="benefits__icon"><i data-icon="phone"></i></span>Prices by phone</li>
+        </ul>
+      </div>
+      <div id="order-desk"></div>
+    </div>
+  </section>
+
+  <!-- 7. Feed, like "Sayian ambassadors" -->
+  <section class="feed" id="feed" aria-labelledby="feed-title">
+    <svg class="curve" viewBox="0 0 1440 220" aria-hidden="true">
+      <defs><path id="curve-path" d="M -40 170 C 360 40, 1080 40, 1480 170"/></defs>
+      <text><textPath href="#curve-path" class="curve__text">JUST SAY HOLA &#183; ORDER BY THE CASE &#183; JUST SAY HOLA &#183; ORDER BY THE CASE &#183; JUST SAY HOLA &#183; ORDER BY THE CASE &#183; JUST SAY HOLA &#183; ORDER BY THE CASE &#183;</textPath></text>
+    </svg>
+    <div class="wrap">
+      <div class="center-head center-head--hot">
+        <h2 class="display" id="feed-title">HOLA on your feed</h2>
+        <p>Fresh from the HOLA Facebook and Instagram pages. Tap a photo to see it bigger.</p>
+      </div>
+      <div class="polaroids" id="polaroids"></div>
+    </div>
+  </section>
+
+  <!-- 8. Story, like "It starts from the inside" + founder -->
+  <section class="story wave" id="story" aria-labelledby="story-title">
+    <div class="wrap">
+      <div class="story__top">
+        <div class="oval">
+          <img src="../shared/img/life/pour.webp" alt="HOLA Rosé being poured into a glass outdoors" width="1320" height="1400" loading="lazy">
+        </div>
+        <div class="story__copy">
+          <h2 class="display" id="story-title">HOLA means hello.</h2>
+          <p><strong>hola</strong>, noun. Hi, hello, jambo. A word used as a greeting, and a drink that says it for you.</p>
+          <ul class="icons3">
+            <li><i data-icon="spark"></i><strong>New flavours</strong><span>Mojito, Rosé, Sweet Limão and more next to the usual cola.</span></li>
+            <li><i data-icon="eye"></i><strong>Labels that sell</strong><span>Designed to be spotted from across the shop.</span></li>
+            <li><i data-icon="coins"></i><strong>Fair prices</strong><span>Save your shilling, prosper.</span></li>
+          </ul>
+        </div>
+      </div>
+      <blockquote class="quote">
+        <p>&ldquo;Refreshing Kenyans with world class beverages at an affordable price.&rdquo;</p>
+        <footer>Maisha Beverages on YouTube</footer>
+      </blockquote>
+      <div class="founder">
+        <p class="founder__kicker">The Maisha story</p>
+        <h2 class="display">Meet Maisha Beverages</h2>
+        <div class="founder__frame">
+          <div class="mb-yt founder__video" data-yt="F2DqzdPeuTY" data-title="Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price">
+            <button type="button" aria-label="Play video: Maisha Beverages, refreshing Kenyans with world class beverages at an affordable price">
+              <img src="../shared/img/video-poster.webp" alt="" width="1280" height="720" loading="lazy">
+              <span class="mb-yt__play"><i data-icon="play"></i></span>
+            </button>
+          </div>
+          <span class="founder__note" aria-hidden="true">Jambo!<svg viewBox="0 0 120 70"><path d="M6 60 C 30 10, 80 6, 108 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M92 10 L 110 24 L 90 36" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <img class="fruit fruit--berry2" src="../shared/img/cut/strawberry.webp" alt="" width="628" height="510" loading="lazy" aria-hidden="true">
+        </div>
+        <p class="founder__text">Proudly made in Kenya, by Kenyans, HOLA carbonated soft drinks and energy drinks are here to raise the bar for refreshment across Africa. Our team brings together seasoned professionals and dreamers who want a new generation of young Africans to believe in their own greatness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. HOLA mixes, like "Sayian mixes" -->
+  <section class="mixes" id="mixes" aria-labelledby="mixes-title">
+    <div class="wrap">
+      <div class="mixes__head">
+        <div>
+          <h2 class="display" id="mixes-title">HOLA mixes</h2>
+          <p>What to pour with nyama choma and ugali, plus mocktails and cocktails your bar can put on the menu tonight.</p>
+          <div class="mtabs" role="tablist" aria-label="Recipe types"></div>
+        </div>
+        <div class="mixes__nav">
+          <button class="rbtn" type="button" data-mix="-1" aria-label="Previous recipes"><i data-icon="left"></i></button>
+          <button class="rbtn" type="button" data-mix="1" aria-label="Next recipes"><i data-icon="right"></i></button>
         </div>
       </div>
     </div>
+    <div class="mtrack" id="mix-track" role="tabpanel" tabindex="-1"></div>
   </section>
 
-  <section class="section flavours" id="flavours" aria-labelledby="flavours-title">
-    <div class="wrap">
-      <div class="center-head">
-        <h2 class="display" id="flavours-title">Pick your flavour</h2>
-        <p>Seven soft drinks and three energy drinks. Pick a bottle for tasting notes, then add it to your order list.</p>
+  <!-- 10. Sell HOLA: distributor form + quick answers -->
+  <section class="sell wave" id="sell" aria-labelledby="sell-title">
+    <div class="wrap sell__grid">
+      <div class="sell__copy">
+        <h2 class="display" id="sell-title">Sell HOLA in your county</h2>
+        <p>Distributors, wholesalers and big outlets: tell us where you trade and our trade team calls to agree your area, volumes and pricing.</p>
+        <ol class="steps">
+          <li><span>1</span>Send your details</li>
+          <li><span>2</span>Agree your terms</li>
+          <li><span>3</span>Take your first delivery</li>
+        </ol>
+        <h3 class="faq__title">Quick answers</h3>
+        <div class="faq" id="faq-list"></div>
       </div>
-      <div class="flavour-grid" id="flavour-grid"></div>
-      <button class="energy-strip card3d" type="button" data-open-energy>
-        <span class="energy-strip__copy">
-          <span class="tag tag--sm">Energy drinks</span>
-          <span class="energy-strip__title">HOLA Energy, three ways</span>
-          <span class="energy-strip__text">The original Liquid Gold, Red Berries, and Green Peach &amp; Lemongrass.</span>
-        </span>
-        <span class="energy-strip__shots" aria-hidden="true">
-          <img src="../shared/img/studio/energy-red.webp" alt="" width="600" height="995" loading="lazy">
-          <img src="../shared/img/studio/energy.webp" alt="" width="600" height="996" loading="lazy">
-          <img src="../shared/img/studio/energy-green.webp" alt="" width="600" height="995" loading="lazy">
-        </span>
-        <span class="energy-strip__go" aria-hidden="true"><i data-icon="right"></i></span>
-      </button>
-    </div>
-  </section>
-
-  <section class="section shops" id="shops" aria-labelledby="shops-title">
-    <div class="wrap shops__grid">
-      <div class="porthole-wrap">
-        <div class="porthole"><img src="../shared/img/life/cola-hand.webp" alt="A hand holding up a bottle of HOLA Cola outdoors" width="1288" height="1400" loading="lazy"></div>
-        <img class="porthole__pop" src="../shared/img/bottles/mojito.webp" alt="" width="251" height="921" loading="lazy">
-        <svg class="burst burst--hole" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8v18M50 74v18M8 50h18M74 50h18M20 20l13 13M67 67l13 13M80 20 67 33M33 67 20 80"/></svg>
-      </div>
-      <div class="shops__copy">
-        <h2 class="display" id="shops-title">Why shops love HOLA</h2>
-        <div class="reasons">
-          <div class="reason"><span class="tag">Priced to move</span><p>Save your shilling, prosper. A price point that suits Kenyan shoppers keeps bottles moving.</p></div>
-          <div class="reason"><span class="tag">New flavours</span><p>Mojito, Ros&eacute;, Sweet Lim&atilde;o and Mango Special. Flavours the big brands don&rsquo;t make.</p></div>
-          <div class="reason"><span class="tag">Labels that pop</span><p>Bold patterned packs in ten colours get spotted from across the shop.</p></div>
-          <div class="reason"><span class="tag">Made in Kenya</span><p>Made in Nairobi, so restocks stay close to your shelves.</p></div>
-        </div>
-      </div>
-    </div>
-    <div class="wrap partners">
-      <p class="partners__label">See how we work with</p>
-      <div class="partners__row" id="partners-row"></div>
-    </div>
-  </section>
-
-  <section class="section out" id="out-there" aria-labelledby="out-title">
-    <div class="wrap">
-      <div class="center-head">
-        <h2 class="display" id="out-title">HOLA out there</h2>
-        <p>Real bottles, real moments, straight from our Instagram and Facebook.</p>
-      </div>
-    </div>
-    <div class="polaroids" id="polaroids"></div>
-    <div class="wrap out__follow">
-      <a class="btn btn--ghost" href="https://www.instagram.com/hola_beverages/" target="_blank" rel="noopener"><i data-icon="instagram"></i>Follow @hola_beverages</a>
-      <a class="btn btn--ghost" href="https://www.facebook.com/holabeverages/" target="_blank" rel="noopener"><i data-icon="facebook"></i>HOLA on Facebook</a>
-    </div>
-  </section>
-
-  <section class="section video" id="video" aria-labelledby="video-title">
-    <div class="wrap">
-      <div class="center-head">
-        <h2 class="display" id="video-title">Watch the Maisha story</h2>
-        <p>Refreshing Kenyans with world class beverages at an affordable price.</p>
-      </div>
-      <div class="video__frame">
-        <div class="mb-yt" data-yt="F2DqzdPeuTY" data-title="Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price">
-          <button type="button" aria-label="Play video: Maisha Beverages, refreshing Kenyans with world class beverages at an affordable price">
-            <img src="../shared/img/video-poster.webp" alt="" width="1280" height="720" loading="lazy">
-            <span class="mb-yt__play"><i data-icon="play"></i></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section dist" id="distributor" aria-labelledby="dist-title">
-    <div class="wrap">
-      <div class="center-head">
-        <h2 class="display" id="dist-title">Bring HOLA to your shop</h2>
-        <p>Distributors, wholesalers, shops and hotels: three steps and the fridges are full.</p>
-      </div>
-      <ol class="bubbles">
-        <li><a class="bubble card3d" href="#dist-form"><span class="bubble__n">1</span><span class="bubble__t">Say hola</span><span class="bubble__p">Send the form below or call 0715 537 575.</span></a></li>
-        <li><a class="bubble card3d" href="#dist-form"><span class="bubble__n">2</span><span class="bubble__t">We call you</span><span class="bubble__p">We agree your area, flavours and a price list for your volumes.</span></a></li>
-        <li><a class="bubble card3d" href="#dist-form"><span class="bubble__n">3</span><span class="bubble__t">Fridges full</span><span class="bubble__p">Stock arrives from Nairobi with posters to launch HOLA.</span></a></li>
-      </ol>
-
       <div class="form-card">
         <form id="dist-form" class="form" data-distributor novalidate aria-labelledby="form-title">
-          <div class="form__head">
-            <h3 class="form__title" id="form-title">Your HOLA enquiry</h3>
-            <p class="form__note">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required. Takes two minutes.</p>
-          </div>
+          <h3 class="form__title" id="form-title">Distributor request</h3>
           <div class="form-grid">
-            <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" autocomplete="name" required></div>
-            <div class="field"><label for="f-business">Business name *</label><input id="f-business" name="business" autocomplete="organization" required></div>
-            <div class="field"><label for="f-phone">Phone *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="0712 345 678" required></div>
+            <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" autocomplete="name"></div>
+            <div class="field"><label for="f-business">Business name *</label><input id="f-business" name="business" autocomplete="organization"></div>
+            <div class="field"><label for="f-phone">Phone *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="0712 345 678"></div>
             <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@business.co.ke"></div>
-            <div class="field"><label for="f-type">Business type *</label><select id="f-type" name="type" data-fill="types" required></select></div>
-            <div class="field"><label for="f-county">County *</label><select id="f-county" name="county" data-fill="counties" required></select></div>
-            <div class="field"><label for="f-area">Towns or areas you cover</label><input id="f-area" name="area" placeholder="For example Kisumu CBD and Kondele"></div>
+            <div class="field"><label for="f-type">Business type *</label><select id="f-type" name="type" data-fill="types"></select></div>
+            <div class="field"><label for="f-county">County *</label><select id="f-county" name="county" data-fill="counties"></select></div>
+            <div class="field"><label for="f-area">Towns or areas you cover</label><input id="f-area" name="area" placeholder="For example Thika, Ruiru and Juja"></div>
             <div class="field"><label for="f-volume">Expected volume</label><select id="f-volume" name="volume" data-fill="volumes"></select></div>
-            <fieldset class="field field--full">
-              <legend>Your order list</legend>
-              <div class="chips" data-fill="flavours"></div>
-            </fieldset>
-            <fieldset class="field field--full field--inline">
-              <legend>Own delivery vehicles?</legend>
-              <label class="radio"><input type="radio" name="vehicles" value="Yes"><span>Yes</span></label>
-              <label class="radio"><input type="radio" name="vehicles" value="No"><span>No</span></label>
-              <label class="radio"><input type="radio" name="vehicles" value="Planning to"><span>Planning to</span></label>
-            </fieldset>
-            <div class="field field--full"><label for="f-message">Anything else?</label><textarea id="f-message" name="message" rows="3" placeholder="Outlets you serve, current brands, the best time to call"></textarea></div>
-            <div class="field field--full"><label class="check"><input type="checkbox" name="consent" id="f-consent" required><span>I agree to be contacted by Maisha Beverages about this enquiry. *</span></label></div>
+            <div class="field field--full"><label for="f-message">Anything else?</label><textarea id="f-message" name="message" rows="2" placeholder="Outlets you serve, current brands, the best time to call"></textarea></div>
+            <div class="field field--full"><label class="check"><input type="checkbox" name="consent"><span>I agree to be contacted by Maisha Beverages about this request. *</span></label></div>
           </div>
-          <div class="form__foot">
-            <p class="form__status" role="alert"></p>
-            <button type="submit" class="btn btn--primary btn--lg">Send my enquiry</button>
-          </div>
+          <p class="form__status" role="alert"></p>
+          <button type="submit" class="btn btn--hot btn--block">Send my request</button>
         </form>
       </div>
     </div>
   </section>
 
-  <section class="section quick" id="faq" aria-labelledby="faq-title">
-    <div class="wrap quick__grid">
-      <div>
-        <h2 class="display" id="faq-title">Quick answers</h2>
-        <p>Still curious? Ask our chat assistant or call the trade line.</p>
-        <button class="btn btn--ghost" type="button" data-open-chat><i data-icon="chat"></i>Chat with us</button>
-      </div>
-      <div class="quick__list" id="faq-list"></div>
-    </div>
-  </section>
-
-  <section class="section find" id="find" aria-labelledby="find-title">
-    <div class="wrap find__grid">
-      <div class="postcard">
+  <!-- 11. Contact + map -->
+  <section class="visit" id="contact" aria-labelledby="contact-title">
+    <div class="wrap visit__grid">
+      <div class="mapframe">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.874916447874!2d36.8875478!3d-1.2460012000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15baffe6ede1%3A0xd61bb411f2a1bb7d!2sMaisha%20Beverages%20Limited!5e0!3m2!1sen!2ske!4v1793005391041!5m2!1sen!2ske" title="Map showing Maisha Beverages Limited on Baba Dogo Road, Nairobi" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        <span class="postcard__stamp" aria-hidden="true"><img src="../shared/img/logo/hola-logo-flat.webp" alt="" width="534" height="465" loading="lazy"></span>
       </div>
-      <div class="find__copy">
-        <h2 class="display" id="find-title">Come say hola</h2>
-        <address>
-          <strong>Maisha Beverages Limited</strong>
-          Spectrum Business Park, Baba Dogo Road<br>
-          P.O. Box 49510, 00100 Nairobi, Kenya
-        </address>
-        <div class="find__actions">
-          <a class="pill" href="tel:+254715537575"><i data-icon="phone"></i><span><small>Trade line</small>0715 537 575</span></a>
-          <a class="pill" href="mailto:info@hola.co.ke?subject=Trade%20enquiry"><i data-icon="mail"></i><span><small>Email</small>info@hola.co.ke</span></a>
-          <a class="pill" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2460012%2C36.8875478" target="_blank" rel="noopener"><i data-icon="nav"></i><span><small>Directions</small>Open in Google Maps</span></a>
+      <div class="visit__copy">
+        <h2 class="display" id="contact-title">Come say hola</h2>
+        <p>Spectrum Business Park, Baba Dogo Road, Nairobi. Call ahead and the trade team will meet you.</p>
+        <div class="vcards">
+          <a class="vcard" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2460012%2C36.8875478" target="_blank" rel="noopener"><span class="vcard__icon"><i data-icon="pin"></i></span><span><strong>Get directions</strong>P.O. Box 49510, 00100 Nairobi</span><i data-icon="up"></i></a>
+          <a class="vcard" href="tel:+254715537575"><span class="vcard__icon"><i data-icon="phone"></i></span><span><strong>0715 537 575</strong>Trade line for orders and pricing</span><i data-icon="up"></i></a>
+          <a class="vcard" href="mailto:info@hola.co.ke?subject=Trade%20enquiry"><span class="vcard__icon"><i data-icon="mail"></i></span><span><strong>info@hola.co.ke</strong>Trade, media and general enquiries</span><i data-icon="up"></i></a>
         </div>
         <div class="socials">
           <a href="https://www.instagram.com/hola_beverages/" target="_blank" rel="noopener" aria-label="HOLA on Instagram"><i data-icon="instagram"></i></a>
@@ -247,38 +268,25 @@
   </section>
 </main>
 
-<footer class="footer">
-  <p class="footer__word" aria-hidden="true">Just say hola!</p>
-  <div class="wrap footer__grid">
-    <div class="footer__brand">
-      <img src="../shared/img/logo/hola-logo-flat.webp" alt="HOLA" width="534" height="465" loading="lazy">
-      <p>HOLA is made by <strong>Maisha Beverages Limited</strong>, Nairobi. The home of explosive flavours.</p>
+<footer class="footer wave">
+  <div class="wrap">
+    <div class="footer__cols">
+      <nav aria-label="Flavours"><h3>Flavours</h3><div id="footer-flavours"></div></nav>
+      <nav aria-label="Trade"><h3>Trade</h3><a href="#order">Order desk</a><a href="#sell">Sell HOLA</a><a href="#supply">Who we supply</a><a href="#mixes">HOLA mixes</a></nav>
+      <nav aria-label="Company"><h3>Company</h3><a href="#story">Our story</a><a href="#feed">HOLA on your feed</a><a href="#contact">Visit us</a></nav>
+      <div><h3>Contact</h3><a href="tel:+254715537575">0715 537 575</a><a href="mailto:info@hola.co.ke">info@hola.co.ke</a><a href="https://www.instagram.com/hola_beverages/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/holabeverages/" target="_blank" rel="noopener">Facebook</a></div>
     </div>
-    <nav class="footer__col" aria-label="Flavours">
-      <h3>Flavours</h3>
-      <div class="footer__flavours" id="footer-flavours"></div>
-    </nav>
-    <nav class="footer__col" aria-label="Explore">
-      <h3>Explore</h3>
-      <a href="#story">Our story</a>
-      <a href="#shops">For shops</a>
-      <a href="#out-there">HOLA out there</a>
-      <a href="#distributor">Become a distributor</a>
-    </nav>
-    <div class="footer__col">
-      <h3>Say hola</h3>
-      <a href="tel:+254715537575">0715 537 575</a>
-      <a href="mailto:info@hola.co.ke">info@hola.co.ke</a>
-      <p>Baba Dogo Road, Nairobi</p>
-    </div>
+    <p class="footer__base">&copy; 2026 Maisha Beverages Limited. Proudly made in Kenya, by Kenyans.</p>
   </div>
-  <div class="wrap footer__base"><p>&copy; 2026 Maisha Beverages Limited. All rights reserved.</p><p>Proudly made in Kenya, by Kenyans.</p></div>
+  <p class="footer__giant" aria-hidden="true">Just say HOLA!</p>
 </footer>
 
-<script src="../shared/js/data.js?v=1"></script>
-<script src="../shared/js/ui.js?v=1"></script>
-<script src="../shared/js/form.js?v=1"></script>
-<script src="../shared/js/chatbot.js?v=1"></script>
-<script src="js/site.js?v=1"></script>
+<script src="../shared/js/data.js?v=2"></script>
+<script src="../shared/js/ui.js?v=2"></script>
+<script src="../shared/js/form.js?v=2"></script>
+<script src="../shared/js/order.js?v=2"></script>
+<script src="../shared/js/modals.js?v=2"></script>
+<script src="../shared/js/chatbot.js?v=2"></script>
+<script src="js/site.js?v=2"></script>
 </body>
 </html>

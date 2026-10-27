@@ -5,10 +5,10 @@
   var C = MB.company;
 
   var DEFAULT_CHIPS = [
+    { label: 'Place an order', say: 'I want to place an order' },
     { label: 'Become a distributor', say: 'I want to become a distributor' },
     { label: 'Get a price list', say: 'Can I get a price list?' },
-    { label: 'See the flavours', say: 'Which flavours do you make?' },
-    { label: 'Where are you?', say: 'Where are you located?' },
+    { label: 'Recipe ideas', say: 'Show me recipes and mixes' },
     { label: 'Talk to a person', say: 'I want to talk to a person' }
   ];
 
@@ -25,8 +25,9 @@
     { id: 'person', re: /\b(person|human|someone|agent|representative|real)\b|talk to|speak to/ },
     { id: 'distributor', re: /distribut|wholesal|stockist|become|partner|dealer|franchise|account|supply|supplier|resell|sell hola|stock hola|stock your|retail|\bshop\b|kiosk|duka|supermarket|minimart/ },
     { id: 'price', re: /price|cost|how much|\brate|\bbei\b|margin|discount|quote|quotation/ },
-    { id: 'order', re: /\border|\bbuy\b|purchase|minimum|\bmoq\b|bulk|cases?\b|crates?\b|deliver|transport|lead time|stock level/ },
-    { id: 'events', re: /event|wedding|party|hotel|restaurant|\bbar\b|mocktail|cocktail|catering|conference/ },
+    { id: 'order', re: /\border|\bbuy\b|purchase|restock|minimum|\bmoq\b|bulk|cases?\b|crates?\b|basket|\bcart\b|deliver|transport|lead time|stock level/ },
+    { id: 'recipes', re: /recipe|cocktail|mocktail|\bmix(es|er|ers)?\b|pair|food|ugali|nyama|choma|bbq|barbe?cue|grill|dawa|punch|menu idea/ },
+    { id: 'events', re: /event|wedding|party|hotel|restaurant|\bbar\b|catering|conference/ },
     { id: 'location', re: /where|locat|address|office|factory|plant|visit|direction|\bmap\b|baba dogo|nairobi/ },
     { id: 'contact', re: /contact|phone|\bcall\b|number|email|e mail|\bmail\b|whatsapp|reach/ },
     { id: 'quality', re: /quality|kebs|certif|ingredient|sugar|calorie|halal|allergen|nutrition|expiry|shelf life|preservative/ },
@@ -50,9 +51,12 @@
       case 'price':
         return { text: 'Trade prices depend on your area and monthly volumes, so the team shares the current price list once they have your details.', actions: [{ label: 'Request a price list', act: 'form', message: 'Please send me your current trade price list.', icon: 'list' }, call] };
       case 'order':
-        return { text: 'Orders, minimums and delivery days are agreed per area. Tell us your county in the form and we will confirm the nearest distributor and delivery options.', actions: [form, call] };
+        var have = MB.order.total();
+        return { text: 'Use the order desk: pick your flavours by the case, choose a delivery day and the trade desk calls to confirm prices and stock.' + (have ? ' Your order so far: ' + MB.cases(have) + '.' : '') + ' Minimums depend on your area, and you can mix any flavours.', actions: [{ label: 'Open the order desk', act: 'order', icon: 'basket' }, call] };
+      case 'recipes':
+        return { text: 'HOLA goes with nyama choma, ugali and everything on the grill, and it mixes well. Pick one for the full recipe.', recipes: true };
       case 'events':
-        return { text: 'HOLA Mojito and Rosé are favourites for alcohol free menus. Share your dates and volumes and we will send a quote.', actions: [{ label: 'Ask for an event quote', act: 'form', type: 'Events or institution', icon: 'calendar' }, call] };
+        return { text: 'HOLA Mojito, Rosé and Very Berry make easy alcohol free menus, and our party punch serves twelve from one bowl. Share your dates and volumes and we will quote.', actions: [{ label: 'Very Berry Party Punch', act: 'recipe', id: 'berry-punch', icon: 'citrus' }, { label: 'Order for an event', act: 'order', icon: 'basket' }, { label: 'Ask for an event quote', act: 'form', type: 'Events or institution', icon: 'calendar' }] };
       case 'location':
         return { text: 'You will find us at ' + C.street + ', ' + C.city + '. Postal address: ' + C.pobox + '.', actions: [{ label: 'Get directions', href: C.directions, icon: 'nav', ext: true }, { label: 'Show the map', act: 'map', icon: 'pin' }] };
       case 'contact':
@@ -68,7 +72,7 @@
         return { text: 'There are seven soft drinks and three energy drinks. Pick one for tasting notes.', flavours: true };
       case 'flavour':
         var f = MB.flavour(ctx);
-        return { text: 'HOLA ' + f.name + ': ' + f.desc, actions: [{ label: 'See ' + f.name + ' details', act: 'flavour', id: f.id, icon: 'eye' }, { label: 'Add to my enquiry', act: 'add', id: f.id, icon: 'plus' }] };
+        return { text: 'HOLA ' + f.name + ': ' + f.desc, actions: [{ label: 'See ' + f.name + ' details', act: 'flavour', id: f.id, icon: 'eye' }, { label: 'Add 5 cases to my order', act: 'add', id: f.id, icon: 'basket' }] };
       case 'thanks':
         return { text: 'You are welcome! Anything else I can help with?', chips: DEFAULT_CHIPS };
       case 'bye':
@@ -134,6 +138,11 @@
               '<img src="' + MB.img('bottles/' + f.id + '.webp') + '" alt="">' + MB.esc(f.name) + '</button>';
           }).join('') + '</div>';
         }
+        if (r.recipes) {
+          html += '<div class="mb-msg__recipes">' + MB.recipes.map(function (x) {
+            return '<button type="button" class="mb-rec" data-rec="' + x.id + '"><img src="' + MB.img(x.img) + '" alt="">' + MB.esc(x.name) + '</button>';
+          }).join('') + '</div>';
+        }
         if (r.actions) {
           html += '<div class="mb-msg__actions">' + r.actions.map(function (a, i) {
             var inner = MB.icon(a.icon || 'right') + '<span>' + MB.esc(a.label) + '</span>';
@@ -147,6 +156,9 @@
             b.addEventListener('click', function () { act(r.actions[+b.getAttribute('data-i')]); });
           });
         }
+        MB.$$('.mb-rec', m).forEach(function (b) {
+          b.addEventListener('click', function () { MB.openRecipe(b.getAttribute('data-rec')); });
+        });
         MB.$$('.mb-flav', m).forEach(function (b) {
           b.addEventListener('click', function () { ask(b.getAttribute('data-say'), reply('flavour', b.getAttribute('data-flav'))); });
         });
@@ -200,10 +212,15 @@
           MB.go('#story');
         } else if (a.act === 'flavour' && MB.openFlavour) {
           MB.openFlavour(a.id);
+        } else if (a.act === 'order') {
+          close();
+          MB.go('#order');
+        } else if (a.act === 'recipe') {
+          MB.openRecipe(a.id);
         } else if (a.act === 'add') {
-          var added = MB.enquiry.toggle(a.id);
+          MB.order.add(a.id, 5);
           var f = MB.flavour(a.id);
-          botSay({ text: added ? f.name + ' is on your enquiry. It will be ticked in the distributor form.' : f.name + ' is off your enquiry.', actions: [{ label: 'Open the distributor form', act: 'form', icon: 'list' }] });
+          botSay({ text: '5 cases of ' + f.name + ' are in your order. You now have ' + MB.cases(MB.order.total()) + ' in total.', actions: [{ label: 'Open the order desk', act: 'order', icon: 'basket' }] });
         }
       }
 
