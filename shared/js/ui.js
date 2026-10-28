@@ -70,12 +70,44 @@
     });
   };
 
-  /* Dialogs: native <dialog> for focus trap, Esc and inert page */
+  /* Smooth wheel scrolling (Lenis, MIT). Touch, keyboard and reduced motion keep native scrolling. */
+  MB.lenis = null;
+  MB.smoothScroll = function () {
+    if (MB.lenis || MB.reducedMotion() || typeof window.Lenis === 'undefined') return;
+    MB.lenis = new window.Lenis({ lerp: 0.085, wheelMultiplier: 0.9, smoothWheel: true, allowNestedScroll: true, autoRaf: true });
+    // In-page links glide through Lenis and land below the fixed header
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a || e.defaultPrevented || a.classList.contains('skip') || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var href = a.getAttribute('href');
+      var target = href === '#top' ? 0 : href.length > 1 ? MB.$(href) : null;
+      if (target === null) return;
+      e.preventDefault();
+      MB.scrollTo(target);
+    });
+  };
+  /* Scroll to an element, a selector or an absolute y. Elements land below the fixed header. */
+  MB.scrollTo = function (target, opts) {
+    opts = opts || {};
+    if (typeof target === 'string') target = MB.$(target);
+    if (target === null || target === undefined) return;
+    var y = typeof target === 'number' ? target
+      : target.getBoundingClientRect().top + scrollY - (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0);
+    if (MB.lenis) {
+      MB.lenis.scrollTo(y, { duration: opts.duration || Math.min(1.6, 0.6 + Math.abs(y - scrollY) / 4000), force: true });
+    } else {
+      window.scrollTo({ top: y, behavior: MB.reducedMotion() || opts.immediate ? 'auto' : 'smooth' });
+    }
+  };
+
+  /* Dialogs: native <dialog> for focus trap, Esc and inert page. The page stops scrolling
+     under an open dialog, and the dialog scrolls itself (data-lenis-prevent). */
   MB.modal = {
     open: function (html, opts) {
       opts = opts || {};
       var d = document.createElement('dialog');
       d.className = 'mb-dialog ' + (opts.className || '');
+      d.setAttribute('data-lenis-prevent', '');
       d.innerHTML = '<div class="mb-dialog__panel">' + html +
         '<button class="mb-dialog__close" type="button" aria-label="Close">' + MB.icon('close') + '</button></div>';
       if (opts.label) d.setAttribute('aria-label', opts.label);
@@ -85,19 +117,25 @@
       d.querySelector('.mb-dialog__close').addEventListener('click', function () { MB.modal.close(d); });
       MB.hydrateIcons(d);
       d.showModal();
+      // showModal focuses the first link inside, which can scroll a tall pop-up past its title
+      d.querySelector('.mb-dialog__close').focus({ preventScroll: true });
+      d.scrollTop = 0;
       document.documentElement.classList.add('mb-modal-open');
+      if (MB.lenis) MB.lenis.stop();
       if (opts.onOpen) opts.onOpen(d);
       return d;
     },
     close: function (d) {
-      d = d || MB.$('dialog.mb-dialog[open]');
+      d = d || MB.$('dialog.mb-dialog[open]:not(.is-closing)');
       if (!d || d.classList.contains('is-closing')) return;
       d.classList.add('is-closing');
-      var done = function () {
-        d.close();
-        d.remove();
-        if (!MB.$('dialog.mb-dialog[open]')) document.documentElement.classList.remove('mb-modal-open');
-      };
+      var last = !MB.$$('dialog.mb-dialog[open]').some(function (x) { return x !== d && !x.classList.contains('is-closing'); });
+      if (last) {
+        // free the page straight away, so a scroll asked for on close is not swallowed
+        document.documentElement.classList.remove('mb-modal-open');
+        if (MB.lenis) MB.lenis.start();
+      }
+      var done = function () { d.close(); d.remove(); };
       if (MB.reducedMotion()) done(); else setTimeout(done, 200);
     },
     closeAll: function () { MB.$$('dialog.mb-dialog[open]').forEach(function (d) { MB.modal.close(d); }); }
@@ -249,14 +287,28 @@
     var target = MB.$(sel);
     if (!target) return;
     MB.modal.closeAll();
-    target.scrollIntoView({ behavior: MB.reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    MB.scrollTo(target);
     if (focusSel) {
       setTimeout(function () {
         var f = MB.$(focusSel);
         if (f) f.focus({ preventScroll: true });
-      }, MB.reducedMotion() ? 0 : 650);
+      }, MB.reducedMotion() ? 0 : 900);
     }
   };
 
-  document.addEventListener('DOMContentLoaded', function () { MB.hydrateIcons(document); });
+  /* Social links, from MB.socials: fills every [data-socials] element.
+     data-socials="icons" gives round icon buttons, "labels" adds the network name. */
+  MB.fillSocials = function (root) {
+    MB.$$('[data-socials]', root).forEach(function (el) {
+      var labels = el.getAttribute('data-socials') === 'labels';
+      el.innerHTML = MB.socials.map(function (s) {
+        return '<a class="social social--' + s.id + '" href="' + s.href + '" target="_blank" rel="noopener"' +
+          (labels ? '' : ' aria-label="' + MB.esc(s.label) + ' (opens in a new tab)"') + '>' +
+          '<span class="social__icon">' + MB.icon(s.id) + '</span>' +
+          (labels ? '<span class="social__text"><strong>' + s.name + '</strong><span>' + MB.esc(s.handle) + '</span></span>' : '') + '</a>';
+      }).join('');
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', function () { MB.hydrateIcons(document); MB.fillSocials(document); });
 })();

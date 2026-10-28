@@ -63,6 +63,10 @@
 
   /* ---------- Mixes carousel ---------- */
   var mtabs = $('.mtabs'), track = $('#mix-track');
+  // Sideways swipes scroll the cards natively; up and down still glide the page
+  track.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.lenisStopPropagation = true;
+  }, { passive: true });
   var TYPES = [{ id: 'all', name: 'All mixes' }].concat(MB.recipeTypes);
   mtabs.innerHTML = TYPES.map(function (t, i) {
     return '<button type="button" role="tab" id="mtab-' + t.id + '" aria-controls="mix-track" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '" data-type="' + t.id + '">' + t.name + '</button>';
@@ -139,6 +143,7 @@
   ['hero', 'flavours', 'supply', 'order', 'feed', 'story', 'mixes', 'sell', 'contact'].forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
 
   /* ---------- Shared parts ---------- */
+  MB.smoothScroll();
   MB.hydrateIcons(document);
   MB.headerScroll($('.header'));
   MB.bindOrderCount();

@@ -21,5 +21,6 @@ All brand material belongs to Maisha Beverages Limited (HOLA). It is used here t
 ## Type, icons, services
 - **Bricolage Grotesque** (Mathieu Triay) and **Mona Sans** (GitHub), SIL Open Font License 1.1, self-hosted Latin subsets from Google Fonts.
 - **Icons**: paths adapted from Lucide, ISC License.
+- **Lenis** smooth scroll (darkroom.engineering), MIT License, vendored in `shared/js/vendor/lenis.min.js`.
 - **Google Maps** embed and **YouTube** (privacy-enhanced embed) load from their services.
 - **Layout references** supplied by the client: Brio (brio-drinks.framer.website) for concept A and Sayian Drinks (sayian-drinks.webflow.io) for concept B. No code or assets were copied from either.

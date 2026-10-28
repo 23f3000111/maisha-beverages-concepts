@@ -29,6 +29,7 @@
     { id: 'recipes', re: /recipe|cocktail|mocktail|\bmix(es|er|ers)?\b|pair|food|ugali|nyama|choma|bbq|barbe?cue|grill|dawa|punch|menu idea/ },
     { id: 'events', re: /event|wedding|party|hotel|restaurant|\bbar\b|catering|conference/ },
     { id: 'location', re: /where|locat|address|office|factory|plant|visit|direction|\bmap\b|baba dogo|nairobi/ },
+    { id: 'social', re: /instagram|\binsta\b|facebook|\bfb\b|tiktok|youtube|social|follow/ },
     { id: 'contact', re: /contact|phone|\bcall\b|number|email|e mail|\bmail\b|whatsapp|reach/ },
     { id: 'quality', re: /quality|kebs|certif|ingredient|sugar|calorie|halal|allergen|nutrition|expiry|shelf life|preservative/ },
     { id: 'jobs', re: /\bjobs?\b|career|vacanc|hiring|employ|internship|attachment/ },
@@ -59,6 +60,8 @@
         return { text: 'HOLA Mojito, Rosé and Very Berry make easy alcohol free menus, and our party punch serves twelve from one bowl. Share your dates and volumes and we will quote.', actions: [{ label: 'Very Berry Party Punch', act: 'recipe', id: 'berry-punch', icon: 'citrus' }, { label: 'Order for an event', act: 'order', icon: 'basket' }, { label: 'Ask for an event quote', act: 'form', type: 'Events or institution', icon: 'calendar' }] };
       case 'location':
         return { text: 'You will find us at ' + C.street + ', ' + C.city + '. Postal address: ' + C.pobox + '.', actions: [{ label: 'Get directions', href: C.directions, icon: 'nav', ext: true }, { label: 'Show the map', act: 'map', icon: 'pin' }] };
+      case 'social':
+        return { text: 'Follow HOLA on Instagram (@hola_beverages) and Facebook for new flavours and HOLA moments, and watch our story on YouTube.', actions: MB.socials.map(function (x) { return { label: x.name + ', ' + x.handle, href: x.href, icon: x.id, ext: true }; }) };
       case 'contact':
       case 'person':
         return { text: 'Our trade team is on ' + C.phone + ' and ' + C.email + '. You can also leave your details in the form and they will call you back.', actions: [call, mail, form] };
@@ -67,7 +70,7 @@
       case 'jobs':
         return { text: 'Thanks for your interest in working with us. Send your CV and the role you are interested in to ' + C.email + '.', actions: [{ label: 'Email your CV', href: 'mailto:' + C.email + '?subject=Job%20application', icon: 'mail' }] };
       case 'company':
-        return { text: 'Maisha Beverages Limited makes HOLA soft drinks and energy drinks in Nairobi. HOLA means hello: hi, hello, jambo. Proudly made in Kenya, by Kenyans.', actions: [{ label: 'Watch our story', act: 'story', icon: 'play' }] };
+        return { text: 'Maisha Beverages Limited makes HOLA soft drinks and energy drinks in Nairobi, led by Managing Director Mr Brij Raja, the visionary behind HOLA. HOLA means hello: hi, hello, jambo. Proudly made in Kenya, by Kenyans.', actions: [{ label: 'Watch the video with Mr Brij Raja', act: 'story', icon: 'play' }] };
       case 'flavours':
         return { text: 'There are seven soft drinks and three energy drinks. Pick one for tasting notes.', flavours: true };
       case 'flavour':
@@ -99,7 +102,7 @@
       root.innerHTML =
         '<div class="mb-chat__teaser" hidden><button class="mb-chat__teaser-text" type="button">' + MB.esc(cfg.teaser || 'Looking to stock HOLA? Ask me anything.') + '</button>' +
         '<button class="mb-chat__teaser-x" type="button" aria-label="Dismiss">' + MB.icon('close') + '</button></div>' +
-        '<section class="mb-chat__panel" id="mb-chat-panel" aria-label="' + MB.esc(cfg.title || 'HOLA trade assistant') + '" hidden>' +
+        '<section class="mb-chat__panel" id="mb-chat-panel" data-lenis-prevent aria-label="' + MB.esc(cfg.title || 'HOLA trade assistant') + '" hidden>' +
         '<header class="mb-chat__head"><span class="mb-chat__avatar"><img src="' + MB.img('logo/hola-logo-flat.webp') + '" alt=""></span>' +
         '<span class="mb-chat__who"><strong>' + MB.esc(cfg.title || 'HOLA trade assistant') + '</strong><span><i class="mb-chat__live"></i>' + MB.esc(cfg.subtitle || 'Replies instantly') + '</span></span>' +
         '<button class="mb-chat__close" type="button" aria-label="Close chat">' + MB.icon('close') + '</button></header>' +

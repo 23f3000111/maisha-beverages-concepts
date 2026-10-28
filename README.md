@@ -4,7 +4,7 @@ Two concept websites for **Maisha Beverages Limited**, makers of HOLA soft drink
 
 | | Concept | Folder | Follows | Look |
 |---|---|---|---|---|
-| A | Corporate | `site-a-corporate/` | [Brio](https://brio-drinks.framer.website/) | Bricolage Grotesque, cream pill header, an arc of bottles on the colour of the flavour in front, a scroll story where each flavour takes over the page, big number "why" panel, rounded colour cards |
+| A | Corporate | `site-a-corporate/` | [Brio](https://brio-drinks.framer.website/) | Bricolage Grotesque, cream pill header, an arc of bottles on the colour of the flavour in front, a scroll story where each flavour takes over the page (one screen of scroll per flavour, settles on a whole flavour), big number "why" panel, rounded colour cards, a pink "Say hola on social" band |
 | B | Fun | `site-b-fun/` | [Sayian](https://sayian-drinks.webflow.io/homepage/home-03) | Mona Sans condensed caps, arched "JUST SAY HOLA!", sky blue, pink, red, sunshine yellow and orange sections joined by waves, bubbles and floating fruit, sticker tags, polaroids |
 
 `index.html` at the root is a chooser that links to both.
@@ -25,7 +25,9 @@ Two concept websites for **Maisha Beverages Limited**, makers of HOLA soft drink
   - Cocktails (marked 18+): Sweet Limão Dawa, Cola Kick, Orange Sunrise, Very Berry Gin Smash.
 - **Distributor form**: validation (Kenyan phone format, county list, consent) and a confirmation with a reference number.
 - **Chat assistant**: rule-based, no server. It now also opens the order desk, adds cases and shows recipes. Intents live in `shared/js/chatbot.js`.
-- **Google Maps** embed (the iframe supplied), **company video** (loads YouTube only when played), Instagram, Facebook and YouTube links.
+- **Social links** from `MB.socials` in `shared/js/data.js`: icons in the header, the footer and the contact area, labelled buttons in A's social band and B's feed section, and a chat answer for "instagram", "facebook" and similar. TikTok waits for the client's handle.
+- **Company video** with Mr Brij Raja, Managing Director of Maisha Beverages Ltd and the visionary behind HOLA, named on both sites (loads YouTube only when played), and the **Google Maps** embed (the iframe supplied).
+- **Smooth scrolling** with Lenis (`shared/js/vendor/lenis.min.js`), wheel only: touch, keyboard and reduced motion keep native scrolling. In-page links glide and land below the fixed header; the page holds still under pop-ups.
 - Light sections only, sans-serif only, `prefers-reduced-motion` respected.
 
 ## Orders and forms have no inbox yet
@@ -39,7 +41,7 @@ A WhatsApp hand-off (a pre-filled message to the trade line) is easy to add once
 
 ## What is real and what to confirm with the client
 
-**Real (from HOLA's own material):** logo, bottle cutouts and studio photos, the six-flavour photo from the Google Maps listing, Facebook photos, flavour names and descriptions (hola.co.ke), "The home of explosive flavours", "Just say HOLA", "Save your shilling, prosper", "HOLA: hi, hello, jambo", the 60-year flavour line, "refreshing Kenyans with world class beverages at an affordable price" (the video title), the address (Spectrum Business Park, Baba Dogo Road, P.O. Box 49510, 00100 Nairobi), info@hola.co.ke, the trade line 0715 537 575 (printed on HOLA's Facebook posts) and the YouTube video. The Energy Red and Energy Green bottle cutouts were lifted from the hola.co.ke banners.
+**Real (from HOLA's own material):** logo, bottle cutouts and studio photos, the six-flavour photo from the Google Maps listing, Facebook photos, flavour names and descriptions (hola.co.ke), "The home of explosive flavours", "Just say HOLA", "Save your shilling, prosper", "HOLA: hi, hello, jambo", the 60-year flavour line, "refreshing Kenyans with world class beverages at an affordable price" (the video title), the address (Spectrum Business Park, Baba Dogo Road, P.O. Box 49510, 00100 Nairobi), info@hola.co.ke, the trade line 0715 537 575 (printed on HOLA's Facebook posts) and the YouTube video, and Mr Brij Raja as Managing Director and the visionary behind HOLA (named by the client for the video). The Energy Red and Energy Green bottle cutouts were lifted from the hola.co.ke banners.
 
 **Written for the mockup, to confirm:**
 - Ordering terms: no prices are shown, case sizes are not stated, minimums "depend on your area", delivery Monday to Saturday in two time windows, collection from Baba Dogo Road, payment by M-Pesa, bank transfer, cash on delivery or on account.
@@ -48,7 +50,7 @@ A WhatsApp hand-off (a pre-filled message to the trade line) is easy to add once
 - What partners get: point of sale material, posters and fridge stickers, listing and promotion support, menu ideas, delivery planned around events.
 - Process and coverage lines: the three distributor steps, "we deliver to your county", "made in Nairobi, close to your stores".
 - Counts: "10 flavours" (7 soft drinks plus Energy, Energy Red Berries, Energy Green Peach & Lemongrass). The website also mentions bottled water; it is left out until confirmed.
-- TikTok: the link supplied was TikTok's general About page, so no TikTok profile is linked.
+- TikTok: the link supplied was TikTok's general About page, so no TikTok profile is linked. Add it to `MB.socials` (and an icon to `shared/js/ui.js`) once the handle is known.
 
 ## Run locally
 

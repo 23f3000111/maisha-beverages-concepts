@@ -9,8 +9,8 @@
 <link rel="icon" href="../shared/img/favicon.png">
 <link rel="apple-touch-icon" href="../shared/img/apple-touch-icon.png">
 <link rel="preload" href="../shared/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/css/shared.css?v=2">
-<link rel="stylesheet" href="css/site.css?v=2">
+<link rel="stylesheet" href="../shared/css/shared.css?v=3">
+<link rel="stylesheet" href="css/site.css?v=3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -28,6 +28,7 @@
       <img src="../shared/img/logo/hola-logo-sm.webp" alt="" width="300" height="267">
     </a>
     <div class="header__end">
+      <div class="header__social" data-socials="icons"></div>
       <a class="header__phone" href="tel:+254715537575"><i data-icon="phone"></i>0715 537 575</a>
       <a class="basket" href="#order" data-order-host aria-label="Your order is empty"><i data-icon="basket"></i><span class="basket__n" data-order-count hidden>0</span></a>
       <a class="btn btn--dark btn--sm" href="#order">Place an order</a>
@@ -88,19 +89,6 @@
         <div class="why__tabs" role="group" aria-label="Reasons"></div>
       </div>
     </div>
-  </section>
-
-  <!-- Statement band -->
-  <section class="statement" aria-labelledby="statement-title">
-    <h2 class="statement__title" id="statement-title">
-      <span class="statement__small">the home of</span>
-      <span class="statement__words">
-        <span class="statement__big">explosive</span>
-        <span class="statement__big statement__big--2">flavours.</span>
-        <img class="statement__bottle" src="../shared/img/bottles/energy.webp" alt="" width="251" height="921" loading="lazy">
-      </span>
-    </h2>
-    <p class="statement__text">HOLA by Maisha Beverages. Proudly made in Kenya, by Kenyans, for every fridge from the corner kiosk to the five star bar.</p>
   </section>
 
   <!-- Order desk: Brio's range grid, now you can order from it -->
@@ -164,14 +152,17 @@
   <!-- Story + video -->
   <section class="section section--story" id="story" aria-labelledby="story-title">
     <div class="wrap story">
-      <div class="story__media">
-        <div class="mb-yt story__video" data-yt="F2DqzdPeuTY" data-title="Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price">
-          <button type="button" aria-label="Play video: Maisha Beverages, refreshing Kenyans with world class beverages at an affordable price">
-            <img src="../shared/img/video-poster.webp" alt="" width="1280" height="720" loading="lazy">
-            <span class="mb-yt__play"><i data-icon="play"></i></span>
-          </button>
+      <figure class="story__figure">
+        <figcaption class="story__who"><strong>Mr Brij Raja</strong><span>Managing Director of Maisha Beverages Ltd and the visionary behind HOLA</span></figcaption>
+        <div class="story__media">
+          <div class="mb-yt story__video" data-yt="F2DqzdPeuTY" data-title="Mr Brij Raja, Managing Director of Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price">
+            <button type="button" aria-label="Play video: Mr Brij Raja, Managing Director of Maisha Beverages, on refreshing Kenyans with world class beverages at an affordable price">
+              <img src="../shared/img/video-poster.webp" alt="" width="1280" height="720" loading="lazy">
+              <span class="mb-yt__play"><i data-icon="play"></i></span>
+            </button>
+          </div>
         </div>
-      </div>
+      </figure>
       <div class="story__copy">
         <p class="eyebrow">Our story</p>
         <h2 class="h2" id="story-title">HOLA means hello.</h2>
@@ -183,6 +174,19 @@
           <li><i data-icon="coins"></i><span><strong>Fair prices</strong>Save your shilling, prosper. Great taste at a price that works.</span></li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="section section--social" id="social" aria-labelledby="social-title">
+    <div class="wrap social-band">
+      <div class="social-band__copy">
+        <p class="eyebrow">Social</p>
+        <h2 class="h2" id="social-title">Say hola on social.</h2>
+        <p>New flavours, launches and HOLA moments from across Kenya. Follow @hola_beverages, and tag us when HOLA is in your fridge.</p>
+        <div class="social-band__links" data-socials="labels"></div>
+      </div>
+      <div class="social-band__photos" id="social-photos"></div>
     </div>
   </section>
 
@@ -242,6 +246,10 @@
       <div class="footer__pitch">
         <p class="footer__line">Kenya&rsquo;s explosive flavours, by the case.</p>
         <a class="btn btn--dark" href="#order">Place an order</a>
+        <div class="footer__social">
+          <p>Follow @hola_beverages</p>
+          <div data-socials="icons"></div>
+        </div>
       </div>
       <div class="footer__cols">
         <nav aria-label="Flavours"><h3>Flavours</h3><div id="footer-flavours"></div></nav>
@@ -256,9 +264,7 @@
           <h3>Contact</h3>
           <a href="tel:+254715537575">0715 537 575</a>
           <a href="mailto:info@hola.co.ke">info@hola.co.ke</a>
-          <a href="https://www.instagram.com/hola_beverages/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.facebook.com/holabeverages/" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.youtube.com/watch?v=F2DqzdPeuTY" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2460012%2C36.8875478" target="_blank" rel="noopener">Spectrum Business Park,<br>Baba Dogo Road</a>
         </div>
       </div>
     </div>
@@ -271,12 +277,13 @@
   </div>
 </footer>
 
-<script src="../shared/js/data.js?v=2"></script>
-<script src="../shared/js/ui.js?v=2"></script>
-<script src="../shared/js/form.js?v=2"></script>
-<script src="../shared/js/order.js?v=2"></script>
-<script src="../shared/js/modals.js?v=2"></script>
-<script src="../shared/js/chatbot.js?v=2"></script>
-<script src="js/site.js?v=2"></script>
+<script src="../shared/js/vendor/lenis.min.js?v=3"></script>
+<script src="../shared/js/data.js?v=3"></script>
+<script src="../shared/js/ui.js?v=3"></script>
+<script src="../shared/js/form.js?v=3"></script>
+<script src="../shared/js/order.js?v=3"></script>
+<script src="../shared/js/modals.js?v=3"></script>
+<script src="../shared/js/chatbot.js?v=3"></script>
+<script src="js/site.js?v=3"></script>
 </body>
 </html>

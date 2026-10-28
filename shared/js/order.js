@@ -239,7 +239,7 @@
       paint();
       if (focus) {
         var top = root.getBoundingClientRect().top;
-        if (top < 0 || top > innerHeight * .6) root.scrollIntoView({ behavior: MB.reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+        if (top < 0 || top > innerHeight * .6) MB.scrollTo(root);
         var h = $('[data-panel="' + n + '"] .od-panel__title', root);
         if (h) setTimeout(function () { h.focus({ preventScroll: true }); }, MB.reducedMotion() ? 0 : 450);
       }
@@ -350,7 +350,7 @@
       $$('[data-goto]', root).forEach(function (b) { b.disabled = true; b.removeAttribute('aria-current'); b.parentNode.classList.add('is-done'); });
       panel.focus({ preventScroll: true });
       var top = root.getBoundingClientRect().top;
-      if (top < 0) root.scrollIntoView({ behavior: MB.reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+      if (top < 0) MB.scrollTo(root);
     }
 
     function restart() {

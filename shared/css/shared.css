@@ -7,6 +7,28 @@
 .icon { width: 1.15em; height: 1.15em; flex: none; }
 html.mb-modal-open { overflow: hidden; }
 
+/* ---------- Lenis smooth scroll ---------- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ---------- Social links (filled from MB.socials; each concept sets the colours) ---------- */
+[data-socials] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--social-gap, 8px); }
+.social { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+.social__icon {
+  width: var(--social-size, 40px); height: var(--social-size, 40px); flex: none; display: grid; place-items: center; border-radius: 50%;
+  background: var(--social-bg, transparent); color: var(--social-fg, currentColor); box-shadow: var(--social-ring, inset 0 0 0 1.5px currentColor);
+  transition: transform .25s cubic-bezier(.2, .8, .2, 1), background .25s, color .25s, box-shadow .25s;
+}
+.social__icon .icon { width: 46%; height: 46%; }
+.social:hover .social__icon, .social:focus-visible .social__icon { transform: translateY(-2px) scale(1.06); background: var(--social-bg-hover, var(--accent)); color: var(--social-fg-hover, #fff); box-shadow: none; }
+.social:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 999px; }
+.social__text { display: grid; gap: 1px; line-height: 1.2; }
+.social__text strong { font-size: 15px; }
+.social__text span { font-size: 13px; opacity: .8; }
+
 /* ---------- Dialog ---------- */
 dialog.mb-dialog {
   position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;

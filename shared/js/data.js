@@ -23,6 +23,14 @@ MB.company = {
   videoTitle: 'Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price'
 };
 
+/* Social links shown in headers, footers and the social sections. TikTok is left out until
+   the client confirms their handle (the link supplied was TikTok's general About page). */
+MB.socials = [
+  { id: 'instagram', name: 'Instagram', handle: '@hola_beverages', label: 'HOLA on Instagram', href: MB.company.instagram },
+  { id: 'facebook', name: 'Facebook', handle: 'HOLA Beverages', label: 'HOLA on Facebook', href: MB.company.facebook },
+  { id: 'youtube', name: 'YouTube', handle: 'Our story on video', label: 'Watch the Maisha Beverages story on YouTube', href: MB.company.youtube }
+];
+
 /* color = label colour used for glows, tints and shadows */
 MB.flavours = [
   {

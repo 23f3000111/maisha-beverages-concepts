@@ -9,8 +9,8 @@
 <link rel="icon" href="../shared/img/favicon.png">
 <link rel="apple-touch-icon" href="../shared/img/apple-touch-icon.png">
 <link rel="preload" href="../shared/fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/css/shared.css?v=2">
-<link rel="stylesheet" href="css/site.css?v=2">
+<link rel="stylesheet" href="../shared/css/shared.css?v=3">
+<link rel="stylesheet" href="css/site.css?v=3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -25,6 +25,7 @@
     </nav>
     <a class="brand" href="#top" aria-label="HOLA, back to top"><img src="../shared/img/logo/hola-logo-sm.webp" alt="" width="300" height="267"></a>
     <div class="header__end">
+      <div class="header__social" data-socials="icons"></div>
       <a class="header__call" href="tel:+254715537575" aria-label="Call the trade line, 0715 537 575"><i data-icon="phone"></i><span>0715 537 575</span></a>
       <a class="cart" href="#order" data-order-host aria-label="Your order is empty"><i data-icon="basket"></i><span class="cart__n" data-order-count hidden>0</span></a>
     </div>
@@ -145,7 +146,8 @@
     <div class="wrap">
       <div class="center-head center-head--hot">
         <h2 class="display" id="feed-title">HOLA on your feed</h2>
-        <p>Fresh from the HOLA Facebook and Instagram pages. Tap a photo to see it bigger.</p>
+        <p>Fresh from the HOLA Facebook and Instagram pages. Tap a photo to see it bigger, and follow along for new flavours.</p>
+        <div class="feed__social" data-socials="labels"></div>
       </div>
       <div class="polaroids" id="polaroids"></div>
     </div>
@@ -173,11 +175,12 @@
         <footer>Maisha Beverages on YouTube</footer>
       </blockquote>
       <div class="founder">
-        <p class="founder__kicker">The Maisha story</p>
-        <h2 class="display">Meet Maisha Beverages</h2>
+        <p class="founder__kicker">The visionary behind HOLA</p>
+        <h2 class="display">Meet Mr Brij Raja</h2>
+        <p class="founder__role">Managing Director of Maisha Beverages Ltd</p>
         <div class="founder__frame">
-          <div class="mb-yt founder__video" data-yt="F2DqzdPeuTY" data-title="Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price">
-            <button type="button" aria-label="Play video: Maisha Beverages, refreshing Kenyans with world class beverages at an affordable price">
+          <div class="mb-yt founder__video" data-yt="F2DqzdPeuTY" data-title="Mr Brij Raja, Managing Director of Maisha Beverages: refreshing Kenyans with world class beverages at an affordable price">
+            <button type="button" aria-label="Play video: Mr Brij Raja, Managing Director of Maisha Beverages, on refreshing Kenyans with world class beverages at an affordable price">
               <img src="../shared/img/video-poster.webp" alt="" width="1280" height="720" loading="lazy">
               <span class="mb-yt__play"><i data-icon="play"></i></span>
             </button>
@@ -258,10 +261,9 @@
           <a class="vcard" href="tel:+254715537575"><span class="vcard__icon"><i data-icon="phone"></i></span><span><strong>0715 537 575</strong>Trade line for orders and pricing</span><i data-icon="up"></i></a>
           <a class="vcard" href="mailto:info@hola.co.ke?subject=Trade%20enquiry"><span class="vcard__icon"><i data-icon="mail"></i></span><span><strong>info@hola.co.ke</strong>Trade, media and general enquiries</span><i data-icon="up"></i></a>
         </div>
-        <div class="socials">
-          <a href="https://www.instagram.com/hola_beverages/" target="_blank" rel="noopener" aria-label="HOLA on Instagram"><i data-icon="instagram"></i></a>
-          <a href="https://www.facebook.com/holabeverages/" target="_blank" rel="noopener" aria-label="HOLA on Facebook"><i data-icon="facebook"></i></a>
-          <a href="https://www.youtube.com/watch?v=F2DqzdPeuTY" target="_blank" rel="noopener" aria-label="Maisha Beverages on YouTube"><i data-icon="youtube"></i></a>
+        <div class="visit__social">
+          <p>Follow HOLA</p>
+          <div data-socials="icons"></div>
         </div>
       </div>
     </div>
@@ -274,19 +276,20 @@
       <nav aria-label="Flavours"><h3>Flavours</h3><div id="footer-flavours"></div></nav>
       <nav aria-label="Trade"><h3>Trade</h3><a href="#order">Order desk</a><a href="#sell">Sell HOLA</a><a href="#supply">Who we supply</a><a href="#mixes">HOLA mixes</a></nav>
       <nav aria-label="Company"><h3>Company</h3><a href="#story">Our story</a><a href="#feed">HOLA on your feed</a><a href="#contact">Visit us</a></nav>
-      <div><h3>Contact</h3><a href="tel:+254715537575">0715 537 575</a><a href="mailto:info@hola.co.ke">info@hola.co.ke</a><a href="https://www.instagram.com/hola_beverages/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/holabeverages/" target="_blank" rel="noopener">Facebook</a></div>
+      <div><h3>Contact</h3><a href="tel:+254715537575">0715 537 575</a><a href="mailto:info@hola.co.ke">info@hola.co.ke</a><h3 class="footer__follow">Follow HOLA</h3><div class="footer__social" data-socials="icons"></div></div>
     </div>
     <p class="footer__base">&copy; 2026 Maisha Beverages Limited. Proudly made in Kenya, by Kenyans.</p>
   </div>
   <p class="footer__giant" aria-hidden="true">Just say HOLA!</p>
 </footer>
 
-<script src="../shared/js/data.js?v=2"></script>
-<script src="../shared/js/ui.js?v=2"></script>
-<script src="../shared/js/form.js?v=2"></script>
-<script src="../shared/js/order.js?v=2"></script>
-<script src="../shared/js/modals.js?v=2"></script>
-<script src="../shared/js/chatbot.js?v=2"></script>
-<script src="js/site.js?v=2"></script>
+<script src="../shared/js/vendor/lenis.min.js?v=3"></script>
+<script src="../shared/js/data.js?v=3"></script>
+<script src="../shared/js/ui.js?v=3"></script>
+<script src="../shared/js/form.js?v=3"></script>
+<script src="../shared/js/order.js?v=3"></script>
+<script src="../shared/js/modals.js?v=3"></script>
+<script src="../shared/js/chatbot.js?v=3"></script>
+<script src="js/site.js?v=3"></script>
 </body>
 </html>
